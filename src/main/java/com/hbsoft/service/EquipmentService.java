@@ -22,7 +22,6 @@ public class EquipmentService {
         Integer i=null;
         try {
             i = equipmentDao.update(equipment);
-            logger.info(i.toString());
         }catch (Exception e){
             logger.error("设备信息更新错误");
             e.printStackTrace();
@@ -46,6 +45,22 @@ public class EquipmentService {
             return new Result(500,"暂无数据");
         }else{
             return new Result<>(0,"获取成功",list);
+        }
+    }
+
+    public Result<Equipment> selectEquipmentById(String id) {
+        Equipment equipment=null;
+        try{
+            equipment=equipmentDao.findEquipmentById(id);
+        }catch(Exception e){
+            logger.error("设备获取异常");
+            e.printStackTrace();
+        }
+        if(equipment==null) {
+            logger.info("无此设备");
+            return new Result(500, "无设备数据");
+        }else{
+            return new Result<>(0,"获取成功",equipment);
         }
     }
 }

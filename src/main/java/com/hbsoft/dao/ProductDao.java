@@ -10,4 +10,6 @@ import java.util.List;
 public interface ProductDao {
 
     List<Product> findAll() throws Exception;
+
+    Product findProByEID(String id) throws Exception;
 }

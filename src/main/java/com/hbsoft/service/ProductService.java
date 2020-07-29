@@ -33,4 +33,19 @@ public class ProductService {
             return new Result(0,"获取成功",list);
         }
     }
+
+    public Result<Product> selectProByEId(String id) {
+        Product product=null;
+        try{
+            product=productDao.findProByEID(id);
+        }catch (Exception e){
+            logger.error("产品获取错误");
+            e.printStackTrace();
+        }
+        if(product==null){
+            return new Result<>(500,"无此产品");
+        }else{
+            return new Result<>(0,"获取成功",product);
+        }
+    }
 }

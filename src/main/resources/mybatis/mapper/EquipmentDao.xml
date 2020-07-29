@@ -9,17 +9,22 @@
     <update id="update">
         update <include refid="tableName"/>
         <trim prefix="set" suffixOverrides=",">
-            <if test="id!=null">id=#{id}</if>
-            <if test="name!=null">name=#{name}</if>
-            <if test="proId!=null">proId=#{proId}</if>
-            <if test="remark!=null">remark=#{remark}</if>
-            <if test="stop!=null">stop=#{stop}</if>
+            <if test="name!=null">name=#{name},</if>
+            <if test="proId!=null">proId=#{proId},</if>
+            <if test="remark!=null">remark=#{remark},</if>
+            <if test="stop!=null">stop=#{stop},</if>
         </trim>
-        where id_prikey=#{id_prikey}
+        where id=#{id}
     </update>
 
     <select id="findAll" resultType="com.hbsoft.bean.Equipment">
         select id,name,proId,remark,stop,id_prikey from
         <include refid="tableName"/>
+    </select>
+
+    <select id="findEquipmentById" resultType="com.hbsoft.bean.Equipment">
+        select id,name,proId,remark,stop,id_prikey from
+        <include refid="tableName"/>
+        where id=#{id}
     </select>
 </mapper>

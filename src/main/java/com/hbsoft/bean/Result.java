@@ -3,12 +3,19 @@ package com.hbsoft.bean;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 @Getter
 @Setter
-public class Result<T> {
+public class Result<T> implements Serializable {
+    private static final long serialVersionUID = -6835984714075017660L;
     private Integer code;
     private String msg;
     private T data;
+
+    private Integer page;
+    private Integer rows;
+
     public Result(){
         super();
     }

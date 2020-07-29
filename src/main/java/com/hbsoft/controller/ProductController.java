@@ -25,4 +25,9 @@ public class ProductController {
         Result<List<Product>> result=productService.selectAll();
         return result;
     }
+    @PostMapping("productId")
+    public Result<Product> productId(String id){
+        Result<Product> result=productService.selectProByEId(id);
+        return result;
+    }
 }

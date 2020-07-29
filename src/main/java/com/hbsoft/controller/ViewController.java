@@ -8,4 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class ViewController {
     @GetMapping("{page}")
     public String open(@PathVariable("page") String page){return page;}
+    @GetMapping("/")
+    public String index(){return "index";}
 }

@@ -10,4 +10,11 @@
         select name,link,icon,remark,stop,id_prikey from
         <include refid="tableName"/>
     </select>
+
+    <select id="findProByEID" resultType="com.hbsoft.bean.Product">
+        select a.name,a.link,a.icon,a.remark,a.stop,a.id_prikey from
+        <include refid="tableName"/> a
+        left join _equipment b on a.id_prikey=b.proId
+        where b.id=#{id}
+    </select>
 </mapper>
