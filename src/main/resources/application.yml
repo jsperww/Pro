@@ -1,0 +1,18 @@
+server:
+  port: 80
+  session:
+    timeout: 7200
+spring:
+  datasource:
+    driver-class-name: net.sourceforge.jtds.jdbc.Driver
+    url: jdbc:jtds:sqlserver://127.0.0.1:1433/Pro;useLOBs=false
+    username: sa
+    password: 12345678
+mybatis:
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  config-location: classpath:mybatis/config/config.xml
+  type-aliases-package: com.hb.bean;com.hbsoft.bean
+
+hb:
+  projectName: /cxyy
+  loginRequired: false
